@@ -29,7 +29,7 @@ x\(_{1}\) \\
 x\(_{2}\) \\
 \cdots \\
 x\(_{n}\)
-\end{pmatrix} = [x_1, x_2, \cdots, x_n]
+\end{pmatrix} = $[x_1, x_2, \cdots, x_n]$
 #+end_math
 
 *** Linear Span
