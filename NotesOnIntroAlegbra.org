@@ -1,0 +1,97 @@
+#+title: Notes on Kostrikin's Introduction to Alegbra
+
+* Matrix
+** Vector Space
+#+begin_definition
+[Vector]
+
+A vector is a nth-tuple denoted by $(x_1, x_2, \cdots, x_n)$ which is element of $\mathbb{R}^n$.
+#+end_definition
+
+#+begin_definition
+[Vector Space]
+A triple (V, +, \cdot) satisfies the following Axioms is called a *vector space* over field K:
+
+a) X + Y = Y + X for all X, Y \in V
+b) (X + Y) + Z  = X + (Y + Z)
+c) \exist \mathbf{0} \in V s.t. \forall X \in V we have X + 0 = X
+d) \exist a negative element of X denoted by -X s.t. X + (-X) = 0
+e) \mathbf{1} \in K s.t. 1X=X for all vector X
+f) \forall \alpha, \beta \in K, (\alpha{}\beta)X = \alpha{}(\beta{}X)
+g) (\alpha + \beta) X = \alpha X + \beta X
+h) \alpha(X + Y) = \alpha X + \alpha Y
+#+end_definition
+
+And we denote the culomn vector:
+#+begin_math
+\begin{pmatrix}
+x\(_{1}\) \\
+x\(_{2}\) \\
+\cdots \\
+x\(_{n}\)
+\end{pmatrix} = [x_1, x_2, \cdots, x_n]
+#+end_math
+
+*** Linear Span
+
+#+begin_definition
+[Linear combinition]
+
+We say vector X is a linear conbination of vectors $X_1, \cdots, X_n$ if there is some numbers $k_1, \cdots, k_n \in K$ s.t.
+\[
+X = \sum_{i=1}^{n}k_{i}X_{i}
+\]
+#+end_definition
+
+And use this definition, it's easy to say that if \set{V} is the set of all combinitions of vectors
+$X_{1}, \cdots, X_{n}$
+we have $\forall X, Y \in V \implies \alpha_{1}X + \alpha_{2}Y \in V$.
+
+It's obvious that vector 0 is always in \set{V}.
+
+The V is called the linear span of vectors $X_{1}, \cots, X_{n}$, and denoted by $\langle X_{1}, \ldots, X_{n} \rangle$.
+
+Then we can define the *linear span of any subset $S \in \mathbb{R}^n$ , $\langle S \rangle$,
+the linear conbination of any finite vectors in S. It's obviously that if V is a linear span, then $\langle \set{V} \rangle = \set{V}$.
+
+\begin{example}
+Let:
+\[U_m = \set{(\lambda_{1}, \cdots, \lambda_{m}, 0, \ldots, 0)}\]
+Obviously, it's a linear span of vectors \[e_{1}, \ldots, e_{m}\]
+\end{example}
+
+*** Linear dependent and linear independent
+#+begin_definition
+[Linear dependent and linear independent]
+
+If there is some numbers k_1, \ldots, k_n which is not all equals to 0 s.t. \[k_{1}X_{1} + \cdots + k_{1}X_{n}=0\], the vectors $X_1, \ldots, X_n$ is called *linear dependent*, and if $k_{1}X_{1} + \cdots + k_{1}X_{n}=0 \implies k_{1}=\cdots=k_{n}=0$, the vectors is called *linear independent*
+#+end_definition
+
+
+线性独立是指一组向量不能表示为另一组向量的线性组合。线性相关是指一组向量可以表示为另一组向量的线性组合。
+
+
+#+begin_theorem
+The following declarations are valid:
+a) If a part group of vectors ${X_1, \cdots, X_n}$ is linear dependent, then the vectors are linear dependent
+b) Any part of the vectors ${X_1, \cdots, X_n}$ are linear independent
+c) At least one of the vectors ${X_1, \cdots, X_n}$ is the linear combinition of other vectors if ${X_1, \cdots, X_n}$ are linear dependent
+d) If one of vectors ${X_1, \cdots, X_n}$ is the linear combinition of others, the vectors are linear dependent
+e) If vectors ${X_1, \cdots, X_n}$ are linear independent, ${X_1, \cdots, X_n, X}$ are linear dependent, X is the linear combinition of vectors {X_1, \cdots, X_n}.
+f) If vectors ${X_1, \cdots, X_n}$ are linear independent, and vector $X_{n+1}$ is not linear combinition of them, then vectors ${X_1, \cdots, X_n, X_{n+1}}$ are linear independent
+#+end_theorem
+
+Then we prove the theorem.
+
+#+begin_proof
+The proof is easy, just need to grasp the concept of linear dependent and linear independent, the only thing is move some term to other side of sign "=".
+
+a) We take $X_1, \cdots, X_s$ where $s < n$,
+   \[
+   \alpha_{1}X_{1} + \cdots + \alpha_{s}X_{s} = 0
+   \]
+   and take $\alpha_{s+1}=\cdots=\alpha_{n}=0$
+b) If there is vectors $X_{1}, \cdots, X_{s}$ where s < n are linear dependent, then the vectors $X_{1}, \cdots, X_{n}$ are also linear dependent, which leads a contradiction to the condition.
+c) 线性相关 $\implies \exist k \in \set{1, \cdots, n}$ s.t. $\alpha_{k} \ne 0$, 移项使得 $X_k$ 变成其余向量的线性组合。
+
+#+end_proof
